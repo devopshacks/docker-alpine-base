@@ -18,16 +18,8 @@ describe "Dockerfile" do
     its(:stdout) { should eq "1000\n" }
   end
 
-  describe command('su-exec app id -un') do
-    its(:stdout) { should eq "app\n" }
-  end
-
   describe command('su-exec app id -u') do
     its(:stdout) { should eq "1000\n" }
-  end
-
-  describe command('su-exec app id -gn') do
-    its(:stdout) { should eq "app\n" }
   end
 
   describe command('su-exec app id -g') do
