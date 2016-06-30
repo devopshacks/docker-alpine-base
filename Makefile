@@ -1,4 +1,4 @@
-DOCKER_IMAGE_NAME = devopshacks/docker-alpine-base
+DOCKER_IMAGE_NAME = devopshacks/alpine-base
 DOCKER_IMAGE_TAG ?= latest
 SHELL = /bin/bash -e
 
