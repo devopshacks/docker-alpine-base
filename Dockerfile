@@ -1,14 +1,15 @@
 FROM alpine:3.4
 
 ENV USER=app \
+    DOCKER_ENTRYPOINT_TRACE= \
     CONFD_VERSION=0.11.0 \
     CONFD_PREFIX=/ \
-    CONFD_OPTIONS="-onetime -backend env"
+    CONFD_OPTIONS="-backend env"
 
 RUN \
     echo "Create app user and group" \
-    && addgroup -g 1000 app \
-    && adduser -u 1000 -D -G app -s /bin/false app \
+    && addgroup -g 1000 ${USER} \
+    && adduser -u 1000 -D -G ${USER} -s /bin/false ${USER} \
 
     && echo "Install packages" \
     && apk add --no-cache \
