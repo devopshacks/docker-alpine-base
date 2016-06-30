@@ -5,7 +5,7 @@ SHELL = /bin/bash -e
 default:
 
 docker-login:
-	docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD} -e ${DOCKER_EMAIL}
+	docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD} -e ${DOCKER_EMAIL}
 
 build:
 	docker pull `awk '/^FROM /{print $$2}' Dockerfile`
