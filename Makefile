@@ -8,9 +8,10 @@ docker-login:
 	docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD} -e ${DOCKER_EMAIL}
 
 build:
+	docker pull `awk '/^FROM /{print $$2}' Dockerfile`
 	docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} .
 
-upload:
+upload: docker-login
 	docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
 
 run-bash:
