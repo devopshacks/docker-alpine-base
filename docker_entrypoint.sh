@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+set -eo pipefail; [[ "$TRACE" ]] && set -x
+
+if [[ "$(id -u)" -ne 0 ]]; then
+	echo 'docker_entrypoint.sh requires root' >&2
+    exit 1
+fi
 
 echo "Running confd with prefix ${CONFD_PREFIX}"
 confd -prefix ${CONFD_PREFIX} ${CONFD_OPTIONS}
