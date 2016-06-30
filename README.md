@@ -1,2 +1,1 @@
-# docker-base-alpine
-Docker image base with Alpine
+# Docker base image for Alpine Linux based containers
