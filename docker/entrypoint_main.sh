@@ -17,6 +17,8 @@ echo
 echo "Run confd with prefix ${CONFD_PREFIX}"
 confd -onetime -prefix ${CONFD_PREFIX} ${CONFD_OPTIONS}
 
+[ ! -f /docker_entrypoint.sh ] || ./docker_entrypoint.sh
+
 echo
 echo "The current user is ${USER}"
 echo
