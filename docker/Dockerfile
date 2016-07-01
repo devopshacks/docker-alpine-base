@@ -24,5 +24,7 @@ RUN \
     && mkdir -p /etc/confd/{conf.d,templates}
 
 COPY docker_entrypoint.sh /docker_entrypoint.sh
+COPY motd /etc/motd
+COPY devopshacks-release /etc/devopshacks-release
 
 ENTRYPOINT ["/docker_entrypoint.sh"]
