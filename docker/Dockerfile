@@ -21,7 +21,10 @@ RUN \
     && echo "Install confd" \
     && curl -sSL https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 -o /bin/confd \
     && chmod +x /bin/confd \
-    && mkdir -p /etc/confd/{conf.d,templates}
+    && mkdir -p /etc/confd/{conf.d,templates} \
+
+    && echo "Clean up" \
+    && apk del curl
 
 COPY entrypoint_main.sh /docker_entrypoint_main.sh
 COPY motd /etc/motd
