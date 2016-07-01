@@ -23,6 +23,9 @@ RUN \
     && chmod +x /bin/confd \
     && mkdir -p /etc/confd/{conf.d,templates}
 
-COPY docker_entrypoint.sh /docker_entrypoint.sh
+COPY entrypoint_main.sh /docker_entrypoint_main.sh
+COPY motd /etc/motd
+COPY devopshacks-release /etc/devopshacks-release
+COPY setup_bash_prompt.sh /etc/profile.d/setup_bash_prompt.sh
 
-ENTRYPOINT ["/docker_entrypoint.sh"]
+ENTRYPOINT ["/docker_entrypoint_main.sh"]

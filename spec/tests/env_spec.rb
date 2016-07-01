@@ -14,6 +14,10 @@ describe "Dockerfile" do
     set :docker_container, @container.id
   end
 
+  describe file('/etc/alpine-release') do
+    its(:content) { should match "^3\.4\." }
+  end
+
   describe command('awk \'/^Uid:/{print $2}\' /proc/1/status') do
     its(:stdout) { should eq "1000\n" }
   end
