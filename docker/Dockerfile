@@ -26,9 +26,9 @@ RUN \
     && echo "Clean up" \
     && apk del curl
 
-COPY entrypoint_main.sh /docker_entrypoint_main.sh
-COPY motd /etc/motd
+COPY entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY devopshacks-logo /etc/devopshacks-logo
 COPY devopshacks-release /etc/devopshacks-release
 COPY setup_bash_prompt.sh /etc/profile.d/setup_bash_prompt.sh
 
-ENTRYPOINT ["/docker_entrypoint_main.sh"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
