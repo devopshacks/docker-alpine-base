@@ -3,7 +3,7 @@
 set -eo pipefail; [[ "$TRACE" ]] && set -x
 
 if [[ "$(id -u)" -ne 0 ]]; then
-    echo 'docker_entrypoint.sh requires root' >&2
+    echo 'docker-entrypoint requires root' >&2
     exit 1
 fi
 
@@ -26,6 +26,11 @@ function init {
     [ ! -f /usr/local/bin/docker-init ] || docker-init || exit_code=$?
 }
 
+function install_dev_tools {
+    echo "Install dev tools"
+    install-dev-tools
+}
+
 case "$@" in
     docker-info)
         info
@@ -33,6 +38,7 @@ case "$@" in
         ;;
     *)
         init_wrapper
+        [ -z "${INSTALL_DEV_TOOLS}" ] || install_dev_tools
         exec su-exec ${USER} "$@"
         ;;
 esac
