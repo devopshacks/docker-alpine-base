@@ -6,11 +6,11 @@ set :backend, :docker
 describe "Dockerfile" do
   before(:all) do
     @container = Docker::Container.create(
-      :Image => ENV['DOCKER_IMAGE_NAME'] + ':' + ENV['DOCKER_IMAGE_TAG'],
-      :Tty => true,
-      :Cmd => 'bash',
-      :HostConfig => {
-        :Binds => [
+      'Image' => ENV['DOCKER_IMAGE_NAME'] + ':' + ENV['DOCKER_IMAGE_TAG'],
+      'Tty' => true,
+      'Cmd' => 'bash',
+      'HostConfig' => {
+        'Binds' => [
           Dir.pwd + '/spec/rsc/docker-init.sh:/usr/local/bin/docker-init'
         ]
       }
