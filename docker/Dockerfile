@@ -27,8 +27,8 @@ RUN \
 
 COPY entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY install-dev-tools.sh /usr/local/bin/install-dev-tools
-COPY devopshacks-logo /etc/devopshacks-logo
-COPY devopshacks-release /etc/devopshacks-release
+COPY opsidian-logo /etc/opsidian-logo
+COPY opsidian-release /etc/opsidian-release
 COPY setup_bash_prompt.sh /etc/profile.d/setup_bash_prompt.sh
 
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint"]
