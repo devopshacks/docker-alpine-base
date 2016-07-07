@@ -16,6 +16,7 @@ RUN \
         su-exec \
         make \
         curl \
+        ca-certificates \
 
     && echo "Install confd" \
     && curl -sSL https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 -o /bin/confd \
