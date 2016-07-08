@@ -39,6 +39,26 @@ describe "Dockerfile" do
     its(:exit_status) { should eq 0 }
   end
 
+  describe package('curl') do
+    it { should be_installed.by('apk') }
+  end
+
+  describe package('make') do
+    it { should be_installed.by('apk') }
+  end
+
+  describe package('ca-certificates') do
+    it { should be_installed.by('apk') }
+  end
+
+  describe package('bash') do
+    it { should be_installed.by('apk') }
+  end
+
+  describe package('su-exec') do
+    it { should be_installed.by('apk') }
+  end
+
   after(:all) do
     if !@container.nil?
       @container.delete(:force => true)
