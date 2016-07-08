@@ -8,7 +8,6 @@ if [[ "$(id -u)" -ne 0 ]]; then
 fi
 
 apk add --no-cache \
-    curl \
     strace \
     tcpflow \
     tcpdump
